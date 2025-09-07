@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>BK Ganapathi Boys</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: sans-serif;
+      background-color: #000;
+    }
+
+    .custom-heading {
+      text-align: center;
+      color: #fff;
+      font-size: 48px;
+      padding: 20px;
+      text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+    }
+
+    .hero-section {
+      height: 50vh;
+      background-image: url("bg.jpg");
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .background-section {
+      height: 100vh;
+      background-image: url('your-background.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .hero-button,
+    .video-button,
+    .nav-button,
+    .login-button {
+      padding: 12px 24px;
+      background-color: #ff6600;
+      color: white;
+      font-size: 18px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      text-decoration: none;
+    }
+
+    .hero-button:hover,
+    .video-button:hover,
+    .nav-button:hover,
+    .login-button:hover {
+      background-color: #e65c00;
+      transform: scale(1.05);
+    }
+
+    /* Login Modal Styles */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 10;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.7);
+    }
+
+    .modal-content {
+      background-color: #fff;
+      margin: 15% auto;
+      padding: 30px;
+      border-radius: 10px;
+      width: 300px;
+      box-shadow: 0 0 10px #000;
+      text-align: center;
+    }
+
+    .modal-content input[type="text"],
+    .modal-content input[type="password"] {
+      width: 90%;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    .modal-content button {
+      background-color: #ff6600;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      margin-top: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .close {
+      color: #aaa;
+      float: right;
+      font-size: 24px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .close:hover {
+      color: #000;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1 class="custom-heading">Welcome BK Fams</h1>
+
+  <!-- Hero Section -->
+  <section>
+    <div class="hero-section">
+      <a href="image.html"><button class="hero-button">Images</button></a>
+       <a href="video.html"><button class="nav-button">🎬 Videos</button></a> 
+      <a href="about.html"><button class="nav-button">About Us</button></a>
+      <a href="events.html"><button class="nav-button">Poojas</button></a>
+      <a href="contact.html"><button class="nav-button">Contact</button></a>
+      
+    </div>
+  </section>
+
+  <!-- Background Video Section -->
+  <section>
+    <div class="background-section">
+      <a href="video.html"><button class="video-button">▶ Play Video</button></a>
+    </div>
+  </section>
+
+  <!-- Login Modal -->
+  <div id="loginModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeLogin()">&times;</span>
+      <h2>Login</h2>
+      <input type="text" placeholder="Username" id="username">
+      <input type="password" placeholder="Password" id="password">
+      <button onclick="submitLogin()">Login</button>
+    </div>
+  </div>
+
+  <script>
+    function openLogin() {
+      document.getElementById("loginModal").style.display = "block";
+    }
+
+    function closeLogin() {
+      document.getElementById("loginModal").style.display = "none";
+    }
+
+    function submitLogin() {
+      const username = document.getElementById("username").value;
+      const password = document.getElementById("password").value;
+      if (username === "" || password === "") {
+        alert("Please enter both username and password.");
+      } else {
+        alert("Login submitted. (Add backend logic to process it.)");
+        closeLogin();
+      }
+    }
+
+    // Close modal when clicking outside of it
+    window.onclick = function (event) {
+      const modal = document.getElementById("loginModal");
+      if (event.target === modal) {
+        modal.style.display = "none";
+      }
+    }
+  </script>
+  
+
+</body>
+</html>
